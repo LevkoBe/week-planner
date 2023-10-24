@@ -1,32 +1,18 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
   margin-top: 2%;
+  bottom: 0;
+  right: 0;
+  animation: App-logo-spin infinite 20s linear, App-logo-scale 10s infinite alternate;
+  transform-origin: 100% 100%;
+  z-index: -1;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 20s linear, App-logo-scale 10s infinite alternate;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -36,4 +22,30 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes App-logo-scale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.8);
+  }
+}
+
+.App {
+  text-align: center;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.NewTaskForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto; /* This centers the form horizontally */
+  margin-top: 20px; /* Adjust the margin-top as needed */
+  width: 300px; /* Adjust the width as needed */
 }

@@ -30,7 +30,7 @@ const NewTaskForm = ({ currentDay, setTasksData }) => {
   };
 
   return (
-    <div className="bg-light p-3 rounded">
+    <div className="bg-light p-3 rounded NewTaskForm bg-light p-3 rounded">
       <h6>Add New Task</h6>
       <input className="form-control mb-2" type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} onClick={handleInputClick} />
       <input className="form-control mb-2" type="text" placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} onClick={handleInputClick} />

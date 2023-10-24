@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./Month.css";
 
 const Month = () => {
   const [calendar, setCalendar] = useState([]);
@@ -24,15 +25,15 @@ const Month = () => {
     const nextMonth = [];
 
     for (let i = totalDaysInPrevMonth; i > 0; i--) {
-      prevMonth.unshift(prevMonthLastDate - i + 1);
+      prevMonth.unshift({ day: prevMonthLastDate - i + 1, isCurrentMonth: false });
     }
 
     for (let i = 1; i <= totalDays; i++) {
-      currentMonthDays.push(i);
+      currentMonthDays.push({ day: i, isCurrentMonth: true, isToday: i === currentDate.getDate() });
     }
 
     for (let i = 1; i <= nextMonthDays; i++) {
-      nextMonth.push(i);
+      nextMonth.push({ day: i, isCurrentMonth: false });
     }
 
     const calendarArray = [...prevMonth, ...currentMonthDays, ...nextMonth];
@@ -49,12 +50,12 @@ const Month = () => {
   const dayLabels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return (
-    <div style={{ display: "inline-block", verticalAlign: "middle", margin: "2%", zIndex: 99 }}>
-      <table style={{ width: "100%" }}>
+    <div className="month-container">
+      <table className="month-table">
         <thead>
           <tr>
             {dayLabels.map((label, index) => (
-              <th key={index} style={{ textAlign: "center" }}>
+              <th key={index} className="day-label">
                 {label}
               </th>
             ))}
@@ -64,8 +65,8 @@ const Month = () => {
           {calendar.map((week, index) => (
             <tr key={index}>
               {week.map((day, index) => (
-                <td key={index} style={{ textAlign: "center" }}>
-                  {day}
+                <td key={index} className={day.isCurrentMonth ? (day.isToday ? "current-day" : "current-month-day") : "non-current-month-day"}>
+                  {day.day}
                 </td>
               ))}
             </tr>
