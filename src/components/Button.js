@@ -6,7 +6,7 @@ const Button = ({ title, onBtnClick }) => {
   };
 
   return (
-    <button className={"btn btn-outline-primary btn-info"} onClick={handleClick}>
+    <button className="btn btn-primary" onClick={handleClick}>
       {title}
     </button>
   );

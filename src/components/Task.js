@@ -7,19 +7,22 @@ const Task = ({ title, description, startTime, endTime }) => {
   };
 
   return (
-    <>
-      <p>{title}</p>
-      <p>
-        {"description: "}, {description}
+    <li className="list-group-item">
+      <h6 className="card-subtitle mb-2 text-muted">{title}</h6>
+      <p className="card-text">
+        <strong>Description: </strong>
+        {description}
       </p>
-      <p>
-        {"Time of start: "}, {startTime}
+      <p className="card-text">
+        <strong>Start Time: </strong>
+        {startTime}
       </p>
-      <p>
-        {"Time of end: "}, {endTime}
+      <p className="card-text">
+        <strong>End Time: </strong>
+        {endTime}
       </p>
       <Button title="Button_1" onBtnClick={BtnEvent} />
-    </>
+    </li>
   );
 };
 
