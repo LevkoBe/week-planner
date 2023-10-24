@@ -30,12 +30,12 @@ const NewTaskForm = ({ currentDay, setTasksData }) => {
   };
 
   return (
-    <div>
+    <div className="bg-light p-3 rounded">
       <h6>Add New Task</h6>
-      <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} onClick={handleInputClick} />
-      <input type="text" placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} onClick={handleInputClick} />
-      <input type="text" placeholder="Start Time" value={startTime} onChange={(e) => setStartTime(e.target.value)} onClick={handleInputClick} />
-      <input type="text" placeholder="End Time" value={endTime} onChange={(e) => setEndTime(e.target.value)} onClick={handleInputClick} />
+      <input className="form-control mb-2" type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} onClick={handleInputClick} />
+      <input className="form-control mb-2" type="text" placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} onClick={handleInputClick} />
+      <input className="form-control mb-2" type="text" placeholder="Start Time" value={startTime} onChange={(e) => setStartTime(e.target.value)} onClick={handleInputClick} />
+      <input className="form-control mb-2" type="text" placeholder="End Time" value={endTime} onChange={(e) => setEndTime(e.target.value)} onClick={handleInputClick} />
       <button className="btn btn-success" onClick={handleAddTask}>
         Add Task
       </button>
