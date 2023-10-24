@@ -1,16 +1,26 @@
 import React, { useState } from "react";
 
-const NewTaskForm = () => {
+const NewTaskForm = ({ onAddTask }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
 
   const handleAddTask = () => {
-    // Here, you can implement the logic to add a new task.
-    // You can use the state variables (title, description, startTime, endTime) to create a new task object.
-    // Add the new task to the tasks list and update the state.
-    // You may also want to clear the form after adding the task.
+    const newTask = {
+      title: title,
+      description: description,
+      startTime: startTime,
+      endTime: endTime,
+    };
+
+    onAddTask(newTask);
+
+    setTitle("");
+    setDescription("");
+    setStartTime("");
+    setEndTime("");
+    console.log("New Task:", newTask);
   };
 
   return (

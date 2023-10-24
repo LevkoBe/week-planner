@@ -4,7 +4,7 @@ import Day from "./Day";
 import DayExpanded from "./DayExpanded";
 import "../styles/index.css";
 
-const Week = () => {
+let Week = () => {
   let [expandedDay, setExpandedDay] = useState(null);
   let days = [
     { day: "Monday", tasks: [tasks[0], tasks[1]] },
@@ -23,7 +23,7 @@ const Week = () => {
     }
   };
   return (
-    <div className="container">
+    <div className="container" style={{ zIndex: 99 }}>
       <h1 className="text-center my-4">Week Planner</h1>
       <div className="row">
         {days.map((day) => (

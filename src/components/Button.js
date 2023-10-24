@@ -1,7 +1,7 @@
 import React from "react";
 
-const Button = ({ title, onBtnClick }) => {
-  const handleClick = (event) => {
+let Button = ({ title, onBtnClick }) => {
+  let handleClick = (event) => {
     onBtnClick(event);
   };
 

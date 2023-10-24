@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import NewTaskForm from "./NewTaskForm";
 import Task from "./Task";
 
-const DayExpanded = ({ name, tasks }) => {
-  const expandedDayStyles = {
+let DayExpanded = ({ name, tasks }) => {
+  const [dayTasks, setDayTasks] = useState(tasks);
+
+  const handleAddTask = (newTask) => {
+    setDayTasks([...dayTasks, newTask]);
+  };
+  let expandedDayStyles = {
     width: "95vw",
     height: "100vh",
     position: "fixed",
@@ -14,9 +19,9 @@ const DayExpanded = ({ name, tasks }) => {
     backgroundColor: "rgba(255, 255, 255, 0.9)",
     zIndex: 100,
   };
-  const [showForm, setShowForm] = useState(false);
+  let [showForm, setShowForm] = useState(true);
 
-  const toggleForm = () => {
+  let toggleForm = () => {
     setShowForm(!showForm);
   };
 
@@ -27,7 +32,7 @@ const DayExpanded = ({ name, tasks }) => {
         <button className="btn btn-primary" onClick={toggleForm}>
           Add Task
         </button>
-        {showForm && <NewTaskForm />}
+        {showForm && <NewTaskForm onAddTask={handleAddTask} />}
         <ul className="list-group">
           {tasks.map((task) => (
             <Task key={task.title} title={task.title} description={task.description} startTime={task.startTime} endTime={task.endTime}></Task>

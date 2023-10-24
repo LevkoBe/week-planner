@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-const Task = ({ title, description, startTime, endTime }) => {
+let Task = ({ title, description, startTime, endTime }) => {
   let BtnEvent = (event) => {
     console.log("Button is pressed!");
   };

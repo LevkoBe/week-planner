@@ -1,7 +1,7 @@
 import React from "react";
 import Task from "./Task";
 
-const Day = ({ name, tasks }) => {
+let Day = ({ name, tasks }) => {
   return (
     <div className="card my-3">
       <div className="card-body">
