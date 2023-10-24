@@ -1,6 +1,7 @@
+import React from "react";
 import Task from "./Task";
 
-let Day = ({ name, tasks }) => {
+const Day = ({ name, tasks }) => {
   return (
     <>
       <p>

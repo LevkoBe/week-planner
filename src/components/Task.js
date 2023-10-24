@@ -1,9 +1,11 @@
+import React from "react";
 import Button from "./Button";
 
-let Task = ({ title, description, startTime, endTime }) => {
+const Task = ({ title, description, startTime, endTime }) => {
   let BtnEvent = (event) => {
-    // console.log("Button is pressed!");
+    console.log("Button is pressed!");
   };
+
   return (
     <>
       <p>{title}</p>
@@ -16,7 +18,7 @@ let Task = ({ title, description, startTime, endTime }) => {
       <p>
         {"Time of end: "}, {endTime}
       </p>
-      <Button title="Button_1" onBtnClick={BtnEvent}></Button>
+      <Button title="Button_1" onBtnClick={BtnEvent} />
     </>
   );
 };
