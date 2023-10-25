@@ -1,9 +1,11 @@
 import React from "react";
 import "./DayCell.css";
 
-const DayCell = ({ day, tasks }) => {
+const DayCell = ({ day, tasks, isActive }) => {
+  let firstPart = day.isCurrentMonth ? (day.isToday ? "current-day" : "current-month-day") : "non-current-month-day";
+  let secondPart = isActive ? " active" : "";
   return (
-    <div className={day.isCurrentMonth ? (day.isToday ? "current-day" : "current-month-day") : "non-current-month-day"}>
+    <div className={firstPart + secondPart}>
       <div className="day-cell">
         <div className="day-number">{new Date(day.day).getDate()}</div>
         <div className="tasks-count">{`${tasks.length} tasks`}</div>
