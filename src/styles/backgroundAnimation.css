@@ -1,0 +1,29 @@
+@keyframes rotateZoom {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.2);
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+  75% {
+    transform: rotate(270deg) scale(0.8);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1000px;
+  height: 1000px;
+  z-index: -1;
+  background-image: url("../hi2.png");
+  background-size: cover;
+  animation: rotateZoom 30s infinite linear;
+}

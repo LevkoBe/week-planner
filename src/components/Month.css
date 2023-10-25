@@ -13,28 +13,3 @@
   border-collapse: collapse;
   text-align: center;
 }
-
-.day-label {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-}
-
-.current-month-day {
-  border: 1px solid #ddd;
-  padding: 10px;
-}
-
-.non-current-month-day {
-  border: 1px solid #ddd;
-  padding: 10px;
-  color: #282c34;
-}
-
-.current-day {
-  border: 1px solid #ddd;
-  padding: 10px;
-  color: #61dafb;
-  background-color: #282c34;
-  font-weight: bold;
-}

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Month.css";
+import DayCell from "./DayCell";
 
-const Month = () => {
+const Month = ({ tasks }) => {
   const [calendar, setCalendar] = useState([]);
 
   useEffect(() => {
@@ -65,8 +66,8 @@ const Month = () => {
           {calendar.map((week, index) => (
             <tr key={index}>
               {week.map((day, index) => (
-                <td key={index} className={day.isCurrentMonth ? (day.isToday ? "current-day" : "current-month-day") : "non-current-month-day"}>
-                  {day.day}
+                <td key={index}>
+                  <DayCell day={day} tasks={tasks.filter((task) => task.date === day)} />
                 </td>
               ))}
             </tr>
