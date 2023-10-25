@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Month.css";
 import DayCell from "./DayCell";
 
-const Month = ({ tasks }) => {
-  const [activeDay, setActiveDay] = useState(null);
-
+const Month = ({ tasks, onDayClick, activeDay }) => {
   const handleDayClick = (day) => {
-    setActiveDay(day.day);
-    console.log(this);
+    onDayClick(day);
   };
 
   const currentDate = new Date();
@@ -68,8 +65,8 @@ const Month = ({ tasks }) => {
           {calendarRows.map((week, index) => (
             <tr key={index}>
               {week.map((day, index) => (
-                <td key={index} onClick={() => handleDayClick(day)} className={activeDay === day.day ? "active" : ""}>
-                  <DayCell day={day} tasks={tasks.filter((task) => task.day === day.day)} isActive={activeDay === day.day} />
+                <td key={index} onClick={() => handleDayClick(day)} className={activeDay === day.date ? "active" : ""}>
+                  <DayCell day={day} tasks={tasks.filter((task) => task.date === day.day)} isActive={activeDay === day.day} />
                 </td>
               ))}
             </tr>

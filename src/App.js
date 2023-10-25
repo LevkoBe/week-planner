@@ -1,22 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import "./styles/backgroundAnimation.css";
 import Month from "./components/calendar/Month";
-import NewTaskForm from "./components/NewTaskForm";
-import tasks from "./components/tasks.js";
+import initialTasks from "./components/tasks.js";
+import DayExpanded from "./components/DayExpanded";
 
 function App() {
+  const [tasks, setTasks] = useState(initialTasks);
+  const [activeDay, setActiveDay] = useState(new Date().toDateString());
+  let handleDayClick = (day) => {
+    setActiveDay(day.day);
+  };
+  let handleTasksChange = (newTask) => {
+    console.log(tasks);
+    tasks.push(newTask);
+    setTasks(tasks);
+    console.log(tasks);
+  };
   return (
     <>
       <div className="background"></div>
       <div className="App">
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <Month tasks={tasks} />
+          <Month tasks={tasks} onDayClick={handleDayClick} activeDay={activeDay} />
           <div style={{ flex: "60%", display: "flex", flexDirection: "column" }}>
-            <div style={{ flex: "40%" }}>
-              <NewTaskForm></NewTaskForm>
-            </div>
-            <div style={{ flex: "60%" }}>{/* Task */}</div>
+            <DayExpanded activeDay={activeDay} onAddTask={handleTasksChange} tasks={tasks.filter((task) => task.date === activeDay)} />
           </div>
         </div>
         <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
