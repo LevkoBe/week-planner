@@ -5,7 +5,7 @@ const DayCell = ({ day, tasks }) => {
   return (
     <div className={day.isCurrentMonth ? (day.isToday ? "current-day" : "current-month-day") : "non-current-month-day"}>
       <div className="day-cell">
-        <div className="day-number">{day.day}</div>
+        <div className="day-number">{new Date(day.day).getDate()}</div>
         <div className="tasks-count">{`${tasks.length} tasks`}</div>
         <div className="total-time">{calculateTotalTime(tasks)}</div>
       </div>

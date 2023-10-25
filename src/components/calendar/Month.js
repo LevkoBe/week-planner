@@ -7,8 +7,8 @@ const Month = ({ tasks }) => {
 
   useEffect(() => {
     const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
     const currentMonth = currentDate.getMonth();
+    const currentYear = currentDate.getFullYear();
 
     const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
     const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
@@ -55,6 +55,7 @@ const Month = ({ tasks }) => {
 
   return (
     <div className="month-container">
+      <h2>{new Date().toLocaleString("en-US", { month: "long" })}</h2>
       <table className="month-table">
         <thead>
           <tr>

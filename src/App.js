@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import "./styles/backgroundAnimation.css";
-import Month from "./components/Month";
+import Month from "./components/calendar/Month";
 import NewTaskForm from "./components/NewTaskForm";
 import tasks from "./components/tasks.js";
 
