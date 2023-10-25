@@ -1,8 +1,9 @@
 import React from "react";
 import Button from "./Button";
 
-let Task = ({ title, description, startTime, endTime }) => {
-  let BtnEvent = (event) => {
+let Task = ({ title, description, startTime, endTime, task, onDelTask }) => {
+  let BtnEvent = () => {
+    onDelTask(task);
     console.log("Button is pressed!");
   };
 
@@ -21,7 +22,7 @@ let Task = ({ title, description, startTime, endTime }) => {
         <strong>End Time: </strong>
         {endTime}
       </p>
-      <Button title="Button_1" onBtnClick={BtnEvent} />
+      <Button title="Done" onBtnClick={BtnEvent} />
     </li>
   );
 };

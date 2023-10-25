@@ -12,6 +12,12 @@
   color: #333;
 }
 
+.no-tasks-text {
+  font-size: 28px;
+  font-weight: bold;
+  color: #999;
+}
+
 .task-list {
   list-style: none;
   padding: 0;
