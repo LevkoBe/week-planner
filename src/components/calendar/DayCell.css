@@ -21,6 +21,9 @@
 .day-number {
   font-size: 1.2rem;
   margin: 5% 15%;
+  border: 1px solid #ddd;
+  border-radius: 20%;
+  background-color: #ccc;
 }
 
 .tasks-count {
@@ -52,5 +55,4 @@
   font-weight: bold;
   color: #282c34;
   border: 1px solid #ccc;
-  border-radius: 3px;
 }
