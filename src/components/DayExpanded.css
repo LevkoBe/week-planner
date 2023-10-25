@@ -1,0 +1,30 @@
+.day-expanded {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 16px;
+  border-radius: 8px;
+}
+
+.day-expanded-title {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 2%;
+}
+
+.task-list li {
+  margin-bottom: 8px;
+  padding: 8px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

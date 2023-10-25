@@ -1,11 +1,13 @@
 import React from "react";
 import NewTaskForm from "./NewTaskForm";
 import Task from "./Task";
+import "./DayExpanded.css";
 
 const DayExpanded = ({ activeDay, onAddTask, tasks }) => {
   let handleAddTask = (task) => {
     onAddTask(task);
   };
+
   return (
     <div className="day-expanded">
       <h5 className="day-expanded-title">Day: {activeDay}</h5>

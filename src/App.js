@@ -13,8 +13,8 @@ function App() {
   };
   let handleTasksChange = (newTask) => {
     console.log(tasks);
-    tasks.push(newTask);
-    setTasks(tasks);
+    const updatedTasks = [...tasks, newTask];
+    setTasks(updatedTasks);
     console.log(tasks);
   };
   return (
