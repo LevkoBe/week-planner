@@ -26,15 +26,18 @@ const Month = ({ tasks }) => {
     const nextMonth = [];
 
     for (let i = totalDaysInPrevMonth; i > 0; i--) {
-      prevMonth.unshift({ day: prevMonthLastDate - i + 1, isCurrentMonth: false });
+      const prevMonthDate = new Date(currentYear, currentMonth - 1, prevMonthLastDate - i + 1);
+      prevMonth.unshift({ day: prevMonthDate.toDateString(), isCurrentMonth: false });
     }
 
     for (let i = 1; i <= totalDays; i++) {
-      currentMonthDays.push({ day: i, isCurrentMonth: true, isToday: i === currentDate.getDate() });
+      const currentMonthDate = new Date(currentYear, currentMonth, i);
+      currentMonthDays.push({ day: currentMonthDate.toDateString(), isCurrentMonth: true, isToday: i === currentDate.getDate() });
     }
 
     for (let i = 1; i <= nextMonthDays; i++) {
-      nextMonth.push({ day: i, isCurrentMonth: false });
+      const nextMonthDate = new Date(currentYear, currentMonth + 1, i);
+      nextMonth.push({ day: nextMonthDate.toDateString(), isCurrentMonth: false });
     }
 
     const calendarArray = [...prevMonth, ...currentMonthDays, ...nextMonth];
@@ -67,7 +70,7 @@ const Month = ({ tasks }) => {
             <tr key={index}>
               {week.map((day, index) => (
                 <td key={index}>
-                  <DayCell day={day} tasks={tasks.filter((task) => task.date === day)} />
+                  <DayCell day={day} tasks={tasks.filter((task) => task.day === day.day)} />
                 </td>
               ))}
             </tr>

@@ -3,7 +3,7 @@ import "./App.css";
 import "./styles/backgroundAnimation.css";
 import Month from "./components/Month";
 import NewTaskForm from "./components/NewTaskForm";
-import tasks from "./stubs/tasks.js";
+import tasks from "./components/tasks.js";
 
 function App() {
   return (

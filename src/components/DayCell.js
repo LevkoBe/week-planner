@@ -7,13 +7,17 @@ const DayCell = ({ day, tasks }) => {
       <div className="day-cell">
         <div className="day-number">{day.day}</div>
         <div className="tasks-count">{`${tasks.length} tasks`}</div>
-        <div className="total-time">{`${calculateTotalTime(tasks)} hrs`}</div>
+        <div className="total-time">{calculateTotalTime(tasks)}</div>
       </div>
     </div>
   );
 };
 
 const calculateTotalTime = (tasks) => {
+  if (tasks.length === 0) {
+    return "-";
+  }
+
   const totalMinutes = tasks.reduce((total, task) => {
     const start = new Date(`2000-01-01T${task.startTime}`);
     const end = new Date(`2000-01-01T${task.endTime}`);
@@ -24,7 +28,7 @@ const calculateTotalTime = (tasks) => {
   const hours = Math.floor(totalMinutes / 60);
   const minutes = totalMinutes % 60;
 
-  return `${hours}.${minutes < 10 ? "0" : ""}${minutes}`;
+  return `${hours}h ${minutes}m`;
 };
 
 export default DayCell;
