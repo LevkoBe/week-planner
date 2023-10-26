@@ -3,11 +3,24 @@ import Task from "./TaskClass";
 
 const NewTaskForm = ({ currentDay, addATask }) => {
   const [title, setTitle] = useState("HW # 13");
-  const [description, setDescription] = useState("Do it today, should be OK.");
+  const [description, setDescription] = useState("Do it today, should be OK");
   const [startTime, setStartTime] = useState("00:01");
   const [endTime, setEndTime] = useState("23:59");
 
+  const startTimeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+  const endTimeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+
   const handleAddTask = () => {
+    if (!startTime.match(startTimeRegex)) {
+      alert("Invalid Start Time format. Please use HH:MM (24-hour) format.");
+      return;
+    }
+
+    if (!endTime.match(endTimeRegex)) {
+      alert("Invalid End Time format. Please use HH:MM (24-hour) format.");
+      return;
+    }
+
     const taskToAdd = new Task(title, description, currentDay, startTime, endTime);
     console.log(taskToAdd);
     addATask(taskToAdd);
@@ -29,12 +42,12 @@ const NewTaskForm = ({ currentDay, addATask }) => {
       <input
         className="form-control mb-2"
         type="text"
-        placeholder="Start Time (00:01)"
+        placeholder="Start Time (HH:MM)"
         value={startTime}
         onChange={(e) => setStartTime(e.target.value)}
         onClick={handleInputClick}
       />
-      <input className="form-control mb-2" type="text" placeholder="End Time (23:59)" value={endTime} onChange={(e) => setEndTime(e.target.value)} onClick={handleInputClick} />
+      <input className="form-control mb-2" type="text" placeholder="End Time (HH:MM)" value={endTime} onChange={(e) => setEndTime(e.target.value)} onClick={handleInputClick} />
       <button className="btn btn-success" onClick={handleAddTask}>
         Add Task
       </button>
